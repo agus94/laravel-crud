@@ -63,11 +63,15 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="nama_depan">Nama Depan</label>
-                    <input type="input" name="nama_depan" class="form-control" id="nama_depan" aria-describedby="emailHelp" placeholder="Nama Depan">
+                    <input type="input" name="nama_depan" class="form-control" id="nama_depan"  placeholder="Nama Depan">
                 </div>
                 <div class="form-group">
                     <label for="nama_belakang">Nama Belakang</label>
-                    <input type="input" name="nama_belakang" class="form-control" id="nama_belakang" aria-describedby="emailHelp" placeholder="Nama Belakang">
+                    <input type="input" name="nama_belakang" class="form-control" id="nama_belakang"  placeholder="Nama Belakang">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email"  placeholder="Email">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Pilih Jenis Kelamin</label>
@@ -78,7 +82,7 @@
                 </div>
                 <div class="form-group">
                     <label for="agama">Agama</label>
-                    <input type="input" name="agama" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama">
+                    <input type="input" name="agama" class="form-control" id="agama"  placeholder="Agama">
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
