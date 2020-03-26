@@ -21,4 +21,9 @@ class Siswa extends Model
         return asset('images/'.$this->avatar);
     }
 
+    public function mapel()
+    {
+        return $this->belongsToMany(Mapel::class)->withPivot('nilai');
+    }
+
 }
