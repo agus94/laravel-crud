@@ -59,35 +59,61 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="/siswa/create" method="post">
+            <form action="/siswa/create" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
-                <div class="form-group">
+                <div class="form-group{{$errors->has('nama_depan') ? ' has-error' : ''}}">
                     <label for="nama_depan">Nama Depan</label>
-                    <input type="input" name="nama_depan" class="form-control" id="nama_depan"  placeholder="Nama Depan">
+                    <input type="input" name="nama_depan" class="form-control" id="nama_depan"  placeholder="Nama Depan" value="{{old('nama_depan')}}">
+                    @if($errors->has('nama_depan'))
+                        <span class="help-block">{{$errors->first('nama_depan')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group{{$errors->has('nama_belakang') ? ' has-error' : ''}}">
                     <label for="nama_belakang">Nama Belakang</label>
-                    <input type="input" name="nama_belakang" class="form-control" id="nama_belakang"  placeholder="Nama Belakang">
+                    <input type="input" name="nama_belakang" class="form-control" id="nama_belakang"  placeholder="Nama Belakang" value="{{old('nama_belakang')}}">
+                    @if($errors->has('nama_belakang'))
+                        <span class="help-block">{{$errors->first('nama_belakang')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group{{$errors->has('email') ? ' has-error' : ''}}">
                     <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" id="email"  placeholder="Email">
+                    <input type="email" name="email" class="form-control" id="email"  placeholder="Email" value="{{old('email')}}">
+                    @if($errors->has('email'))
+                        <span class="help-block">{{$errors->first('email')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group{{$errors->has('jenis_kelamin') ? ' has-error' : ''}}">
                     <label for="exampleFormControlSelect1">Pilih Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control" id="exampleFormControlSelect1">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="L"{{(old('jenis_kelamin') == 'L') ? ' selected' : ''}}>Laki-laki</option>
+                    <option value="P"{{(old('jenis_kelamin') == 'P') ? ' selected' : ''}}>Perempuan</option>
                     </select>
+                    @if($errors->has('jenis_kelamin'))
+                        <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group{{$errors->has('agama') ? ' has-error' : ''}}">
                     <label for="agama">Agama</label>
-                    <input type="input" name="agama" class="form-control" id="agama"  placeholder="Agama">
+                    <input type="input" name="agama" class="form-control" id="agama"  placeholder="Agama" value="{{old('agama')}}">
+                    @if($errors->has('agama'))
+                        <span class="help-block">{{$errors->first('agama')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group{{$errors->has('alamat') ? ' has-error' : ''}}">
                     <label for="alamat">Alamat</label>
-                    <textarea name="alamat" class="form-control" id="alamat" rows="3"></textarea>
+                    <textarea name="alamat" class="form-control" id="alamat" rows="3"> {{old('alamat')}} </textarea>
+                    @if($errors->has('alamat'))
+                        <span class="help-block">{{$errors->first('alamat')}}</span>
+                    @endif
                 </div>
+                <div class="form-group{{$errors->has('avatar') ? ' has-error' : ''}}">
+                    <label for="avatar">Avatar</label>
+                    <input type="file" id="avatar" name="avatar" class="form-control">
+                    @if($errors->has('avatar'))
+                        <span class="help-block">{{$errors->first('avatar')}}</span>
+                    @endif
+                </div>
+
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
