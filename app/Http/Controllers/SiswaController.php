@@ -28,6 +28,7 @@ class SiswaController extends Controller
             'agama' => 'req uired',
             'avatar' => 'mimes:jpeg,bmp,png,jpg'
         ]);
+        
         // Inser ke table Users
         $user = new \App\User;
         $user->role = 'siswa';
@@ -86,8 +87,8 @@ class SiswaController extends Controller
     public function profile($id)
     {
         $siswa = \App\Siswa::find($id);
-
-        return view('siswa.profile', ['siswa' => $siswa]);
+        $matapelajaran = \App\Mapel::all();
+        return view('siswa.profile', ['siswa' => $siswa, 'mapel' => $matapelajaran]);
     }
 
 }
